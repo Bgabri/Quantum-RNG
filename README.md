@@ -2,9 +2,9 @@
 Generates "true random numbers" from a lab in the Australian national university which measeurs the quantum fluctions of a vacumn, more info at [ANU QRNG](https://qrng.anu.edu.au)
 
 ## generating new numbers
-Add ``quantumRandom.lua`` to your project folder 
+Add ``qRNG.lua`` to your project folder 
 
-Insert ``random = require "quantumRandom"`` into your project
+Insert ``require "qRNG"`` into your project
 
 Use ``getQuantumRandom()`` to generate a new value
 
