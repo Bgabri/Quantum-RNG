@@ -109,11 +109,11 @@ end
 local qRNG = {
 	getNumber = function()
 		return normalType()
-	end, getUint8Number = function()
+	end, getUint8 = function()
 		return uint8Type()
-	end, getUint16Number = function()
+	end, getUint16 = function()
 		return uint16Type()
-	end, getHex16Number = function(length)
+	end, getHex16 = function(length)
 		return hex16Type(length or 0)
 	end
 }
