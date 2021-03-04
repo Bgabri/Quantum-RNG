@@ -4,19 +4,11 @@ local uint8 = {}
 local normal = {}
 local hex16 = {}
 
-function getQuantumRandom(type, length)
-	if (type == "uint8") then
-		return uint8Type()
-	elseif (type == "uint16") then
-		return uint16Type()
-	elseif (type == "hex16") then
-		return hex16Type(length)
-	else
-		return normalType()
-	end
-end
+-- local function getNumber()
+-- 	return normalType()
+-- end
 
-function uint8Type()
+local function uint8Type()
 	if (#uint8 <= 0) then
 		local value = http.request("https://qrng.anu.edu.au/API/jsonI.php?length=1024&type=uint8")
 		value = string.match(value, '%[.*%]')
@@ -40,7 +32,7 @@ function uint8Type()
 	return tempValue
 end
 
-function uint16Type()
+local function uint16Type()
 	if (#uint16 <= 0) then
 		local value = http.request("https://qrng.anu.edu.au/API/jsonI.php?length=1024&type=uint16")
 		value = string.match(value, '%[.*%]')
@@ -65,7 +57,7 @@ function uint16Type()
 	return tempValue
 end
 
-function hex16Type(length)
+local function hex16Type(length)
 	if (#hex16 <= 0) then
 		local value = http.request("https://qrng.anu.edu.au/API/jsonI.php?length=1024&type=hex16&size="..length)
 		value = string.match(value, '%[.*%]')
@@ -89,7 +81,7 @@ function hex16Type(length)
 	return tempValue
 end
 
-function normalType()
+local function normalType()
 	if (#normal <= 0) then
 		local value = http.request("https://qrng.anu.edu.au/API/jsonI.php?length=1024&type=hex16&size=4")
 		value = string.match(value, '%[.*%]')
@@ -113,3 +105,17 @@ function normalType()
 	table.remove(normal, 1)
 	return tempValue
 end
+
+local qRNG = {
+	getNumber = function()
+		return normalType()
+	end, getUint8Number = function()
+		return uint8Type()
+	end, getUint16Number = function()
+		return uint16Type()
+	end, getHex16Number = function(length)
+		return hex16Type(length or 0)
+	end
+}
+
+return qRNG 
