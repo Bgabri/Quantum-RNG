@@ -4,9 +4,14 @@ Generates "true random numbers" from a lab in the Australian national university
 ## generating new numbers
 Add ``qRNG.lua`` to your project folder 
 
-Insert ``require "qRNG"`` into your project
+Insert ``local qRNG = require("qRNG")`` into your project
 
-Use ``getQuantumRandom()`` to generate a new value
+Use ``qRNG.getNumber()`` to generate a new value between 0 and 1
+
+For other types
+- hexadecimal: ``qRNG.getHex16(length)``
+- 0 - 256: ``qRNG.getUint8(length)``
+- 0 - 65536: ``qRNG.getUint16(length)``
 
 ## notes
 establishes a conection with ANU's [api](https://qrng.anu.edu.au/contact/api-documentation/) every 1024 numbers generated and generates 1024 numbers
