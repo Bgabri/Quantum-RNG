@@ -10,8 +10,8 @@ Use ``qRNG.getNumber()`` to generate a new value between 0 and 1
 
 For other types
 - hexadecimal: ``qRNG.getHex16(length)``
-- 0 - 256: ``qRNG.getUint8(length)``
-- 0 - 65536: ``qRNG.getUint16(length)``
+- 0 - 256: ``qRNG.getUint8()``
+- 0 - 65536: ``qRNG.getUint16()``
 
 ## notes
 establishes a conection with ANU's [api](https://qrng.anu.edu.au/contact/api-documentation/) every 1024 numbers generated and generates 1024 numbers
